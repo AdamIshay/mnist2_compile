@@ -4,10 +4,6 @@ prop_literals = {'addition(101)': 'addition_101', 'addition(61)': 'addition_61',
 with open('formula_mnist2.txt') as f:
     formula_string = f.read()
 
-
-
-
-
 sdd_vars = {value:None  for value in prop_literals.values()}
 num_vars = (len(prop_literals))
 
@@ -33,4 +29,3 @@ formula = eval(formula_string)
 wmc = formula.wmc(log_mode=False)
 print(f"Model Count: {wmc.propagate()}")
 print('SDD created')
-
