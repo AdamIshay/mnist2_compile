@@ -5,9 +5,6 @@ with open('formula_mnist2.txt') as f:
     formula_string = f.read()
 
 
-
-
-
 sdd_vars = {value:None  for value in prop_literals.values()}
 num_vars = (len(prop_literals))
 
