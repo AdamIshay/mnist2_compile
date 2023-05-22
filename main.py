@@ -11,8 +11,8 @@ from pysdd.sdd import SddManager, Vtree, CompilerOptions
 vtree = Vtree(var_count=num_vars, vtree_type="balanced")
 sdd = SddManager.from_vtree(vtree)
 
-new_options = CompilerOptions(vtree_search_mode=0)
-sdd.set_options(new_options)
+#new_options = CompilerOptions(vtree_search_mode=0)
+#sdd.set_options(new_options)
 
 var_mapping = {}
 for var,sdd_var in zip(sdd_vars, sdd.vars):
