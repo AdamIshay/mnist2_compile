@@ -13,7 +13,8 @@ sdd = SddManager.from_vtree(vtree)
 
 #new_options = CompilerOptions(vtree_search_mode=0)
 #sdd.set_options(new_options)
-#sdd.is_auto_gc_and_minimize_on()
+#sdd.auto_gc_and_minimize_on()
+
 var_mapping = {}
 for var,sdd_var in zip(sdd_vars, sdd.vars):
     exec(f'{var} = sdd_var')
