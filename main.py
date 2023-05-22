@@ -5,12 +5,18 @@ with open('formula_mnist2.txt') as f:
     formula_string = f.read()
 
 
+
+
+
 sdd_vars = {value:None  for value in prop_literals.values()}
 num_vars = (len(prop_literals))
 
-from pysdd.sdd import SddManager, Vtree
+from pysdd.sdd import SddManager, Vtree, CompilerOptions
 vtree = Vtree(var_count=num_vars, vtree_type="balanced")
 sdd = SddManager.from_vtree(vtree)
+
+new_options = CompilerOptions(vtree_search_mode=0)
+sdd.set_options(new_options)
 
 var_mapping = {}
 for var,sdd_var in zip(sdd_vars, sdd.vars):
@@ -18,9 +24,9 @@ for var,sdd_var in zip(sdd_vars, sdd.vars):
     var_mapping[sdd_var.literal] = var
 
 print('creating SDD...')
-
+breakpoint()
 import sys
-sys.setrecursionlimit(10000)
+sys.setrecursionlimit(30000)
 formula = eval(formula_string)
 
 # Model Counting
